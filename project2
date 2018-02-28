@@ -1,0 +1,23 @@
+mydata = read.csv("/Users/MALAVIKA/Desktop/Data science/Mrinal/MBA Starting Salaries Data.csv") 
+attach(mydata)
+boundaries=seq(450,790,by=42.5)
+boundaries
+FD<-table(cut(gmat_tot,boundaries))
+cbind(FD)
+barplot(FD)
+cFD<-c(0,FD)
+plot(boundaries,cFD)     #freq polygon
+lines(boundaries,cFD)    #freq polygon
+length(gmat_tot)
+RFD<-table(cut(gmat_tot,boundaries))/274
+cbind(RFD)
+barplot(RFD)
+CRFD<- c(0,RFD)
+plot(boundaries,CRFD)
+lines(boundaries,CRFD)
+CFD<-cumsum(table(cut(gmat_tot,boundaries)))
+cbind(CFD)
+barplot(CFD)
+CCFD<- c(0,CFD)
+plot(boundaries,CCFD)
+lines(boundaries,CCFD)
